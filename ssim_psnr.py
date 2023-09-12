@@ -69,10 +69,9 @@ if __name__ == '__main__':
 
         avg_psnr += score_psnr
         avg_ssim += score_ssim
-        if score_psnr > 27:
-            print(filename)
-            print("===> PSNR: {:.4f} dB ".format(score_psnr))
-            print("===> SSIM: {:.4f} ".format(score_ssim))
+        print(filename)
+        print("===> PSNR: {:.4f} dB ".format(score_psnr))
+        print("===> SSIM: {:.4f} ".format(score_ssim))
 
 
     avg_psnr = avg_psnr / n
