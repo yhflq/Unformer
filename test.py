@@ -15,11 +15,12 @@ from model import underFormer
 parser = argparse.ArgumentParser(description='Underwater Image Enhancement')
 parser.add_argument('--input_dir', default='./datasets/EUVP/test/image', type=str, help='Input images')
 parser.add_argument('--result_dir', default='./results/EUVP/', type=str, help='Directory for results')
-parser.add_argument('--weights',
-                    default='./checkpoints/EUVP/un_Former/models/model_bestPSNR.pth', type=str,
-                    help='Path to weights')#UIEDB LSUI  EUVP
+parser.add_argument('--weights',default='./checkpoints/EUVP/un_Former/models/model_bestPSNR.pth', type=str,help='Path to weights')#UIEDB LSUI  EUVP
 args = parser.parse_args()
 
+mul = 16  
+index = 0 
+psnr_val_rgb = [] 
 
 def save_img(filepath, img):
     cv2.imwrite(filepath, cv2.cvtColor(img, cv2.COLOR_RGB2BGR))  
@@ -55,10 +56,6 @@ model.cuda()
 load_checkpoint(model, args.weights) 
 model.eval() 
 
-
-mul = 16  
-index = 0  
-psnr_val_rgb = [] 
 for file_ in files: 
     img = Image.open(file_).convert('RGB') 
     input_ = TF.to_tensor(img).unsqueeze(0).cuda() 
