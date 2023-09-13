@@ -12,9 +12,9 @@ import cv2
 import argparse
 
 from model import underFormer
-parser = argparse.ArgumentParser(description='Demo Low-light Image Enhancement')
+parser = argparse.ArgumentParser(description='Underwater Image Enhancement')
 parser.add_argument('--input_dir', default='./datasets/EUVP/test/image', type=str, help='Input images')
-parser.add_argument('--result_dir', default='./results/REIU/', type=str, help='Directory for results')
+parser.add_argument('--result_dir', default='./results/EUVP/', type=str, help='Directory for results')
 parser.add_argument('--weights',
                     default='./checkpoints/EUVP/un_Former/models/model_bestPSNR.pth', type=str,
                     help='Path to weights')#UIEDB LSUI  EUVP
