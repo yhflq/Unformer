@@ -958,12 +958,3 @@ class underFormer(nn.Module):
         out = self.pixelshuffle(conv_out)
 
         return out
-
-#-------------------------------------
-
-if __name__ == "__main__":
-    model = underFormer(dim=48)
-    ops, params = get_model_complexity_info(model, (3,128,128), as_strings=True, print_per_layer_stat=True, verbose=True)
-    print(ops, params)
-    #print('\nTrainable parameters : {}\n'.format(sum(p.numel() for p in model.parameters() if p.requires_grad)))
-    print('\nTotal parameters : {}\n'.format(sum(p.numel() for p in model.parameters())))
